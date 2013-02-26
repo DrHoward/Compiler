@@ -1,0 +1,49 @@
+int i;
+array a[5], b[5];
+procedure f1;
+	procedure f2;
+		procedure f3;
+		{
+			i := 0;
+			while i < 5 do
+			{
+				a[i] := a[i] * a[i];
+				b[i] := b[i] * b[i];
+				i := i + 1;
+			};
+		};
+	{
+		i := 0;
+		while i < 5 do
+		{
+			a[i] := a[i] * a[i];
+			b[i] := b[i] * b[i];
+			i := i + 1;
+		};
+		call f3;
+	};
+{
+	i := 0;
+	while i < 5 do
+	{
+		a[i] := i;
+		b[4 - i] := i;
+		i := i + 1;
+	};
+	call f2;
+};
+{
+	call f1;
+	i := 0;
+	while i < 5 do
+	{
+		write a[i];
+		i := i + 1;
+	};
+	i := 0;
+	while i < 5 do
+	{
+		write b[i];
+		i := i + 1;
+	};
+}. 
